@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Availability Status</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+        body, html { width: 100%; height: 100%; overflow: hidden; font-family: system-ui, sans-serif; }
+        #status-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.4s ease;
+            cursor: pointer;
+        }
+        .green { background-color: #2e7d32; color: #ffffff; }
+        .red { background-color: #c62828; color: #ffffff; }
+        h1 { font-size: 4rem; text-transform: uppercase; letter-spacing: 2px; }
+        p { font-size: 1.5rem; opacity: 0.8; margin-top: 1rem; }
+    </style>
+</head>
+<body class="green" id="body">
+    <div id="status-container" onclick="sendNotification()">
+        <h1 id="status-text">AVAILABLE</h1>
+        <p>Tap screen to knock</p>
+    </div>
+
+    <script>
+        let currentStatus = '';
+
+        async function checkStatus() {
+            try {
+                const res = await fetch('/api/status');
+                const data = await res.json();
+                if (data.status !== currentStatus) {
+                    currentStatus = data.status;
+                    const body = document.getElementById('body');
+                    const text = document.getElementById('status-text');
+                    
+                    if (currentStatus === 'red') {
+                        body.className = 'red';
+                        text.innerText = 'IN A MEETING';
+                    } else {
+                        body.className = 'green';
+                        text.innerText = 'AVAILABLE';
+                    }
+                }
+            } catch (err) {
+                console.error('Polling error:', err);
+            }
+        }
+
+        async function sendNotification() {
+            try {
+                await fetch('/api/notify', { method: 'POST' });
+            } catch (err) {
+                console.error('Notification error:', err);
+            }
+        }
+
+        // Poll every 2 seconds
+        setInterval(checkStatus, 2000);
+        checkStatus();
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "express": "^5.3.0",
+    "node-notifier": "^12.1.0"
+  }
+}
