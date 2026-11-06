@@ -46,16 +46,39 @@ app.post('/api/status', (req, res) => {
     res.json({ success: true, status: currentStatus });
 });
 
-// Fire Windows Toast Notification from iPhone tap
+// Variable to track the last notification timestamp
+let lastNotificationTime = 0;
+const COOLDOWN_MS = 3000; // 3 seconds cooldown window
+
 app.post('/api/notify', (req, res) => {
+    const now = Date.now();
+
+    // SPAM FILTER: Check if tap happened within the cooldown window
+    if (now - lastNotificationTime < COOLDOWN_MS) {
+        console.log('Spam tap ignored.');
+        return res.json({ success: false, message: 'Rate limited (spam ignored)' });
+    }
+
+    // Update last tap timestamp
+    lastNotificationTime = now;
+
+    console.log('Valid tap received! Triggering notification...');
+
+    // 1. Play custom sound (if enabled)
+    // sound.play(path.join(__dirname, 'chime.mp3')).catch(err => console.error(err));
+
+    // 2. Fire Toast Notification
     notifier.notify({
         title: 'Office Door Notice',
         message: 'Someone is outside your office!',
+        appID: 'Door Status Notifier',
         sound: true,
         wait: false
+    }, (err) => {
+        if (err) console.error('Notification error:', err);
     });
+
     res.json({ success: true });
-    console.log("notification triggered");
 });
 
 app.listen(3000, '0.0.0.0', () => {
