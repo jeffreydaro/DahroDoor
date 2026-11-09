@@ -1,0 +1,109 @@
+Prompt
+I am going to share this project with folks and want to create a brief video showing both sides of the client/server stack. Considering modern stylistic trends in videos...write me a shot by shot 3 column script for a 30 second (or so) video.
+
+This project provides a full-stack status display and alert system:
+1. Status Display (iPhone Mount): An old iPhone running Guided Access mode in Safari displays your availability status (Green for AVAILABLE, Red for IN A MEETING). It polls the server every 2 seconds to reflect status changes.
+2. Knock Alert (Desktop Toast): Tapping the iPhone screen sends a request to the backend server, instantly triggering a native Windows desktop toast notification on your PC.
+3. Desktop Controls: Quick batch scripts or API endpoints allow you to change status directly from your Windows machine.
+
+Output
+Here is a shot-by-shot, 3-column script designed around modern tech-video trends (fast-paced pacing, macro close-ups, split-screen contrasts, and smooth on-screen graphic overlays). It is designed to clock in right around **30 seconds**—perfect for YouTube Shorts, X/Twitter, TikTok, or a GitHub README demo video.
+
+---
+
+### **Video Script: Full-Stack Smart Door Indicator**
+
+**Duration:** ~30 Seconds
+
+**Style:** Modern tech video (clean lighting, dynamic kinetic cuts, subtle sound-design emphasis, split-screen callouts)
+
+| Time | Visual (Camera & Frame) | Audio (Sound Design / Voiceover) | Text / Graphic Overlays |
+| --- | --- | --- | --- |
+| **0:00 - 0:03** | **Shot 1:** Macro close-up of a finger tapping an old iPhone wall-mounted outside an office door. The screen instantly changes from green **"AVAILABLE"** to red **"IN A MEETING"**.
+
+ | **SFX:** Mechanical button click + digital swell. <br>
+
+<br>
+
+<br>**VO:** "Here's how I turned an old iPhone into a full-stack smart office indicator." | Bold floating text: <br>
+
+<br>`OLD IPHONE ➔ SMART DOOR DISPLAY` |
+| **0:03 - 0:08** | **Shot 2 (Split Screen):** <br>
+
+<br>• *Left:* iPhone on the wall showing green **AVAILABLE** status. 
+
+<br>
+
+<br>• *Right:* VS Code open on Windows desktop executing a batch script / status toggle command. 
+
+<br>
+
+<br>The iPhone screen live-updates to red in real-time.
+
+ | **SFX:** Fast keyboard clatter + subtle UI chime. <br>
+
+<br>
+
+<br>**VO:** "The backend runs Node.js on my PC. The iPhone polls the server every 2 seconds via Guided Access mode."
+
+ | Lower-third tag: <br>
+
+<br>`Client-to-Server Sync` <br>
+
+<br>Code Callout: <br>
+
+<br>`GET /api/status`
+
+ |
+| **0:08 - 0:14** | **Shot 3:** Over-the-shoulder shot of developer working at PC. Someone approaches the office door outside and taps the iPhone screen.
+
+ | **SFX:** Soft glass tap sound. | Arrow pointing to iPhone: <br>
+
+<br>`Touch Screen Knock`
+
+ |
+| **0:14 - 0:20** | **Shot 4:** Close-up of the Windows desktop screen. A native Windows toast notification instantly pops up: *"Office Door Notice - Someone is outside!"*
+
+ | **SFX:** Sharp Windows notification chime. <br>
+
+<br>
+
+<br>**VO:** "Tapping the screen fires an HTTP POST, instantly triggering a native Windows toast notification on my desktop."
+
+ | Animated route highlight: <br>
+
+<br>`POST /api/notify`
+
+ |
+| **0:20 - 0:25** | **Shot 5:** Fast cut showing custom Material Icon desktop shortcuts (`status-red.bat` / `status-green.bat`) being clicked from the Windows desktop. iPhone screen updates in the background.
+
+ | **SFX:** Quick mouse click + digital ping. <br>
+
+<br>
+
+<br>**VO:** "I can toggle status instantly using batch file shortcuts or terminal scripts."
+
+ | Graphic overlay: <br>
+
+<br>`1-Click Desktop Controls`
+
+ |
+| **0:25 - 0:30** | **Shot 6:** Wide shot of the complete setup—office door illuminated red, developer working peacefully inside. Text on screen prompts viewers to check out the repo. | **SFX:** Upsbeat synth outtro fade. <br>
+
+<br>
+
+<br>**VO:** "Simple hardware reuse, zero extra cloud services needed. Check out the project on GitHub!" | End Card: <br>
+
+<br>`Full-Stack Status Display` <br>
+
+<br>`GitHub Link Below ⬇️` |
+
+---
+
+### **Production & Editing Notes:**
+
+1. **Pacing:** Keep cuts snappy (1 to 4 seconds max per shot) to match modern tech showcase styles.
+2. **Lighting:** Use warm ambient room lighting contrast with the bright green/red neon glow of the wall-mounted iPhone display.
+
+
+3. **Sound Design:** Elevate the video by emphasizing real-world audio cues—the glass tap on the iPhone screen, key clicks, and the native Windows notification chime.
