@@ -37,11 +37,18 @@ app.get('/api/status', (req, res) => {
     res.json({ status: currentStatus });
 });
 
-// Toggle status from Desktop
+// Toggle/Set status from Desktop
 app.post('/api/status', (req, res) => {
-    // Check if req.body exists first to prevent crashes[cite: 1]
     const requestedStatus = req.body && req.body.status;
-    currentStatus = requestedStatus || (currentStatus === 'green' ? 'red' : 'green');
+    
+    if (requestedStatus) {
+        currentStatus = requestedStatus;
+    } else {
+        // Toggle logic (e.g., cycle green -> red -> focus -> green)
+        if (currentStatus === 'green') currentStatus = 'red';
+        else if (currentStatus === 'red') currentStatus = 'focus';
+        else currentStatus = 'green';
+    }
     
     res.json({ success: true, status: currentStatus });
 });
