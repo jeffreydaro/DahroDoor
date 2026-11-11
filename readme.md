@@ -132,3 +132,7 @@ Tapping anywhere on the iPhone screen issues a `POST /api/notify` request, trigg
 If iPhone taps log to the console but no desktop toast appears:
 1. Ensure Windows **Do Not Disturb** / **Focus Assist** is turned **OFF** (*Settings > System > Notifications*).
 2. Ensure VS Code or your terminal is **NOT running as Administrator**, as elevated sessions can suppress Windows UI toasts.
+
+## Shout Out
+1. https://fonts.google.com/icons
+2. https://convertico.com/
