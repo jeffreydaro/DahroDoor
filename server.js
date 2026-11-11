@@ -76,9 +76,10 @@ app.post('/api/notify', (req, res) => {
 
     // 2. Fire Toast Notification
     notifier.notify({
-        title: 'Office Door Notice',
+        title: 'Dahro Door Alert',
         message: 'Someone is outside your office!',
-        appID: 'Door Status Notifier',
+        appID: 'Dahro Door Alert',
+        icon: path.join(__dirname, 'public', 'door_front_256dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.png'), // <--- ADD THIS LINE
         sound: true,
         wait: false
     }, (err) => {
